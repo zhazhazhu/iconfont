@@ -1,11 +1,34 @@
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { resolve } from "path";
+import AutoImport from "unplugin-auto-import/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import Components from "unplugin-vue-components/vite";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig(({ command, mode }) => {
-  const inlinePlugins = [vue({}), vueJsx({})];
+  const inlinePlugins = [
+    vue({}),
+    vueJsx({}),
+    AutoImport({
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/, // .md
+      ],
+      imports: [
+        // presets
+        "vue",
+      ],
+      dts: resolve(__dirname, "./types/auto-imports.d.ts"),
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+      dts: resolve(__dirname, "./types/components.d.ts"),
+    }),
+  ];
 
   if (command === "serve") {
     return {
