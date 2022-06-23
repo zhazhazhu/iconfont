@@ -23,6 +23,7 @@
     ],
     "types": [
       "vite/client",
+      "element-plus/global",
       "unplugin-vue-define-options"
     ],
     "noImplicitAny": false
