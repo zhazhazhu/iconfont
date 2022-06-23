@@ -25,6 +25,7 @@ app.use(IconFontPicker)
 ```
 
 ### 单独引入
+
 ```vue
 <script lang="ts" setup>
 import { PIcon,IconPicker } from 'iconfont-picker'
