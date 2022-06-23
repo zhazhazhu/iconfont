@@ -1,4 +1,4 @@
-import { SuffixEnum, useIconfontApi } from "../../hooks/use-iconfont-api/index";
+import { SuffixEnum, useIconfontApi } from "../hooks/use-iconfont-api/index";
 
 export type LinkAttributes = {
   src?: string;

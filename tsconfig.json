@@ -12,6 +12,11 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "declaration": true,
+    "paths": {
+      "@/*": [
+        "./src/*",
+      ],
+    },
     "lib": [
       "esnext",
       "dom"
@@ -22,7 +27,8 @@
     "noImplicitAny": false
   },
   "include": [
-    "components/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.vue",
     "types/*.d.ts"
   ],
   "exclude": [
