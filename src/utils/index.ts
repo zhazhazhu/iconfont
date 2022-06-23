@@ -1,4 +1,4 @@
-import { SuffixEnum, useIconfontApi } from "../hooks/use-iconfont-api/index";
+import { useIconfontToJsApi } from "../hooks/use-iconfont-api/index";
 
 export type LinkAttributes = {
   src?: string;
@@ -19,12 +19,12 @@ export function createElement(type: string, arg: LinkAttributes): HTMLElement {
   return link;
 }
 
-export function createScript(id: string) {
-  const src = useIconfontApi(id, SuffixEnum.js);
+export function createScript(ids: string[]) {
+  useIconfontToJsApi(ids)?.forEach((item) => {
+    const script = createElement("script", { src: item });
 
-  const script = createElement("script", { src });
-
-  document.head.appendChild(script);
+    document.head.appendChild(script);
+  });
 }
 
 export function setIconfontIdToWindow(id?: string[]) {

@@ -13,3 +13,11 @@ export function useIconfontApi(id?: string, suffix?: IconfontSuffixType) {
   if (!id) return "";
   return `${ICONFONT_API}${id}.${suffix}`;
 }
+
+export function useIconfontToJsApi(ids?: string[]) {
+  return ids?.map((id) => useIconfontApi(id, SuffixEnum.js));
+}
+
+export function useIconfontToJsonApi(ids?: string[]) {
+  return ids?.map((id) => useIconfontApi(id, SuffixEnum.json));
+}

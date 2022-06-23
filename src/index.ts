@@ -4,10 +4,8 @@ import PIcon from "./components/icon/index";
 import { createScript, setIconfontIdToWindow } from "./utils/index";
 
 export const setupIcon = (options?: Options) => {
-  if (options && options.id?.length) {
-    options.id?.forEach((id) => {
-      createScript(id);
-    });
+  if (options && options?.id?.length) {
+    createScript(options.id);
 
     initConfig(options);
   }
