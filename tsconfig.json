@@ -12,11 +12,22 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "declaration": true,
-    "declarationDir": "./types",
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "types": [
+      "vite/client"
+    ],
     "noImplicitAny": false
   },
-  "include": ["components/*.ts"],
-  "exclude": ["node_modules", "dist", "examples"]
+  "include": [
+    "components/**/*.ts",
+    "types/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "examples"
+  ]
 }
