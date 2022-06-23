@@ -22,7 +22,8 @@
       "dom"
     ],
     "types": [
-      "vite/client"
+      "vite/client",
+      "unplugin-vue-define-options"
     ],
     "noImplicitAny": false
   },
