@@ -1,4 +1,6 @@
+import { App } from "vue";
 import { Options } from "../types/index";
+import PIcon from "./components/icon/index";
 import { createScript, setIconfontIdToWindow } from "./utils/index";
 
 export const setupIcon = (options?: Options) => {
@@ -14,3 +16,17 @@ export const setupIcon = (options?: Options) => {
 function initConfig(arg: Options) {
   setIconfontIdToWindow(arg.id);
 }
+
+const components = {
+  PIcon,
+};
+
+const install = (Vue: App) => {
+  Object.values(components).forEach((component) => {
+    Vue.component(component.name, component);
+  });
+};
+
+export { PIcon };
+
+export default { install };
