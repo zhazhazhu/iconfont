@@ -1,7 +1,11 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const iconName = ref("#icon-yezi");
+</script>
 
 <template>
-  <div>hello iconfont-picker</div>
+  <p>hello iconfont-picker</p>
+  <PIcon :name="iconName"></PIcon>
+  <PIconPreview v-model="iconName"></PIconPreview>
 </template>
 
 <style lang="less" scoped></style>

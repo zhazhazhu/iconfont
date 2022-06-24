@@ -1,9 +1,14 @@
 import { createApp } from "vue";
-import { setupIcon } from "../dist/index";
+import Icon, { setupIcon } from "../dist/index";
+import "../dist/style.css";
 import App from "./App.vue";
 
 const app = createApp(App);
 
-setupIcon({});
+setupIcon({
+  id: ["font_2525345_m8w3a3kmgud", "font_2671144_ymii9vu1em"],
+});
+
+app.use(Icon);
 
 app.mount("#app");
