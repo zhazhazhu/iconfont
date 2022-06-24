@@ -59,7 +59,9 @@ export default defineConfig(({ command, mode }) => {
           name: "index",
           fileName: () => "index.js",
         },
-        rollupOptions: {},
+        rollupOptions: {
+          external: Object.keys(require("./package.json").peerDependencies),
+        },
       },
       // build 独有配置
     };

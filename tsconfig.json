@@ -12,11 +12,6 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     // "declaration": true, 开启此选项会有 Props 类型错误
-    "paths": {
-      "@/*": [
-        "./src/*",
-      ],
-    },
     "lib": [
       "esnext",
       "dom"
