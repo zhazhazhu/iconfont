@@ -18,10 +18,13 @@ const bgColor = computed(() => props.name?.split(",")?.[1]);
 
 const blockSize = computed(() => {
   const { size } = toRefs(props);
-
   if (typeof size.value === "number") return Number(size.value) + "px";
 
-  return size.value;
+  try {
+    return Number(size.value) + "px";
+  } catch {
+    return size.value;
+  }
 });
 </script>
 
