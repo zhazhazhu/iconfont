@@ -57,7 +57,8 @@ watchEffect(async () => {
       <div class="icons">
         <div
           v-for="icon in iconGroup.glyphs"
-          @click="
+          class="icon-item"
+          @click.stop="
             emit('update:modelValue', iconPrefix(iconGroup) + icon.font_class)
           "
         >
@@ -65,8 +66,9 @@ watchEffect(async () => {
             :content="icon.font_class"
             placement="bottom"
             effect="light"
+            :auto-close="300"
           >
-            <PIcon :name="iconPrefix(iconGroup) + icon.font_class" size="42" />
+            <PIcon :name="iconPrefix(iconGroup) + icon.font_class" size="38" />
           </ElTooltip>
         </div>
       </div>
