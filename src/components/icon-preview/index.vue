@@ -54,24 +54,23 @@ watchEffect(async () => {
     >
       <div class="icon-group-title">{{ iconGroup.name }}</div>
 
-      <div class="icons">
-        <div
-          v-for="icon in iconGroup.glyphs"
-          class="icon-item"
-          @click.stop="
-            emit('update:modelValue', iconPrefix(iconGroup) + icon.font_class)
-          "
-        >
-          <ElTooltip
-            :content="icon.font_class"
-            placement="bottom"
-            effect="light"
-            :auto-close="300"
+      <ElRow class="icons" :gutter="20">
+        <ElCol v-for="icon in iconGroup.glyphs" :xs="8" :sm="6" :md="4">
+          <div
+            class="icon-item"
+            @click.stop="
+              emit('update:modelValue', iconPrefix(iconGroup) + icon.font_class)
+            "
           >
-            <PIcon :name="iconPrefix(iconGroup) + icon.font_class" size="38" />
-          </ElTooltip>
-        </div>
-      </div>
+            <PIcon
+              :name="iconPrefix(iconGroup) + icon.font_class"
+              size="38"
+              style="margin-left: 10px"
+            />
+            <div class="icon-name">{{ icon.font_class }}</div>
+          </div>
+        </ElCol>
+      </ElRow>
     </div>
   </div>
 </template>
