@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import Icon, { setupIcon } from "../dist/index";
+import Icon, { setupIcon } from "../dist";
 import "../dist/style.css";
 import App from "./App.vue";
 
