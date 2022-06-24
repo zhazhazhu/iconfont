@@ -1,3 +1,5 @@
+import { union } from "lodash-es";
+
 const ICONFONT_API = "https://at.alicdn.com/t/";
 
 export enum SuffixEnum {
@@ -15,9 +17,9 @@ export function useIconfontApi(id?: string, suffix?: IconfontSuffixType) {
 }
 
 export function useIconfontToJsApi(ids?: string[]) {
-  return ids?.map((id) => useIconfontApi(id, SuffixEnum.js));
+  return union(ids?.map((id) => useIconfontApi(id, SuffixEnum.js)));
 }
 
 export function useIconfontToJsonApi(ids?: string[]) {
-  return ids?.map((id) => useIconfontApi(id, SuffixEnum.json));
+  return union(ids?.map((id) => useIconfontApi(id, SuffixEnum.json)));
 }
