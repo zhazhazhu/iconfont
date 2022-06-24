@@ -1,5 +1,6 @@
 import { App } from "vue";
 import { Options } from "../types/index";
+import PIconPreview from "./components/icon-preview/index";
 import PIcon from "./components/icon/index";
 import { createScript, setIconfontIdToWindow } from "./utils/index";
 
@@ -17,6 +18,7 @@ function initConfig(arg: Options) {
 
 const components = {
   PIcon,
+  PIconPreview,
 };
 
 const install = (Vue: App) => {
@@ -25,6 +27,6 @@ const install = (Vue: App) => {
   });
 };
 
-export { PIcon };
+export { PIcon, PIconPreview };
 
 export default { install };
