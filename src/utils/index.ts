@@ -21,6 +21,8 @@ export function createElement(type: string, arg: LinkAttributes): HTMLElement {
 
 export function createScript(ids: string[]) {
   useIconfontToJsApi(ids)?.forEach((item) => {
+    if (!item) return console.error("script src attribute illegal!");
+
     const script = createElement("script", { src: item });
 
     document.head.appendChild(script);
