@@ -1,17 +1,30 @@
 {
   "name": "iconfont-picker-v3",
   "version": "0.0.0",
-  "description": "",
+  "description": "Iconfront ID,iconfront ID.iconfront ID.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "rimraf dist && vite build",
-    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,json,css,less,scss,styl,vue,html,md}\""
+    "build": "rimraf dist && vite build -w false",
+    "build:dev": "rimraf dist && vite build -w true",
+    "lint": "prettier --write  \"**/*.{js,jsx,ts,tsx,json,css,less,scss,styl,vue,html,md}\"",
+    "patch": "npm run build && npm version patch && npm publish",
+    "minor": "npm run build && npm version minor && npm publish",
+    "major": "npm run build && npm version major && npm publish"
   },
-  "keywords": [],
+  "keywords": [
+    "iconfont",
+    "icon",
+    "picker",
+    "icon-picker",
+    "iconfont-picker"
+  ],
   "author": "Zhazhazhu",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/zhazhazhu/iconfont-picker-v3"
+  },
   "peerDependencies": {
     "vue": ">=3.2.25"
   },
@@ -38,5 +51,9 @@
     "unplugin-vue-define-options": "^0.6.1",
     "vite": "^2.9.12",
     "vite-plugin-dts": "^1.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
   }
 }
