@@ -50,7 +50,7 @@ export default defineConfig(({ command, mode }) => {
       ],
       build: {
         watch: {
-          include: ["src/**/*.ts", "src/**/*.vue"],
+          include: ["src/**/*.*"],
         },
         outDir: "./dist",
         lib: {
