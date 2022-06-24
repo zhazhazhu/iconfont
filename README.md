@@ -28,12 +28,14 @@ app.use(IconFontPicker)
 
 ```vue
 <script lang="ts" setup>
+import { ref } from 'vue'
 import { PIcon,IconPicker } from 'iconfont-picker'
 
+const iconName = ref("")
 </script>
 
 <template>
-  <IconPicker></IconPicker>
+  <IconPicker v-model="iconName"></IconPicker>
 
   <PIcon name="#Tomato">
 </template>
