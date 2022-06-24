@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {});
 
 <template>
   <div class="icon-tabs">
-    <el-tabs v-model="modelValue" type="card">
+    <el-tabs v-model="modelValue" type="card" style="width: 100%">
       <el-tab-pane
         v-for="item in data"
         :key="item.id"

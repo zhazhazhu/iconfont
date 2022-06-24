@@ -3,6 +3,11 @@ import { IconfontType } from "../../../types/index";
 import { useIconfontToJsonApi } from "../../hooks/use-iconfont-api/index";
 import { useIconfontId } from "../../utils";
 import PIcon from "../icon/index.vue";
+import {
+  IconPreviewButtonEnum,
+  IconPreviewButtonType,
+} from "./components/buttons";
+import IconPreviewButtons from "./components/IconPreviewButtons.vue";
 import IconPreviewTabs from "./components/IconTabs.vue";
 
 defineOptions({
@@ -48,32 +53,38 @@ watchEffect(async () => {
       if (!activeTabName.value) activeTabName.value = data.id;
     }
 });
+
+const activePreview = ref<IconPreviewButtonType>(IconPreviewButtonEnum.MAP);
 </script>
 
 <template>
   <div class="icon-all">
     <IconPreviewTabs v-model="activeTabName" :data="iconfontData">
       <template #default="icons">
-        <div>
+        <div class="header">
           <div class="icon-quantity">{{ icons.glyphs.length }} Icons</div>
-          <div></div>
+          <IconPreviewButtons @change="activePreview = $event" />
         </div>
-        <ElRow class="icons" :gutter="20">
-          <ElCol v-for="icon in icons.glyphs" :xs="8" :sm="6" :md="4">
+        <ElRow class="icons" :gutter="20" type="flex" :class="activePreview">
+          <div v-for="icon in icons.glyphs" class="icon-item">
             <div
-              class="icon-item"
+              class="icon-item-content"
               @click.stop="
                 emit('update:modelValue', iconPrefix(icons) + icon.font_class)
               "
             >
               <PIcon
                 :name="iconPrefix(icons) + icon.font_class"
-                size="38"
-                style="margin-left: 10px"
+                size="40"
+                :style="
+                  activePreview === 'MAP' ? { 'margin-left': '10px' } : {}
+                "
               />
-              <div class="icon-name">{{ icon.font_class }}</div>
+              <div class="icon-name" v-if="activePreview === 'MAP'">
+                {{ icon.font_class }}
+              </div>
             </div>
-          </ElCol>
+          </div>
         </ElRow>
       </template>
     </IconPreviewTabs>
