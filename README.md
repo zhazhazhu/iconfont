@@ -40,3 +40,7 @@ const iconName = ref("")
   <PIcon name="#Tomato">
 </template>
 ```
+
+![效果一](/src/assets/image/Xnip2022-06-28_14-41-58.jpg)
+
+![效果二](/src/assets/image/Xnip2022-06-28_14-42-18.jpg)
